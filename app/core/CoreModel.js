@@ -1,8 +1,10 @@
-let mysqldb = require('./../../connection/mysql-connection');
+const {mysql,knex} =require('./../providers/database-connection-provider');
 class CoreModel {
 	   constructor (){
-	   	this.db = {};
-	   	this.db.mysql = mysqldb();
+	   	this.db = {
+	   		mysql:mysql(),
+	   		knex:knex()
+	   	};
 	   	this.data = {};
 	   	this.table = {
 			name:null,

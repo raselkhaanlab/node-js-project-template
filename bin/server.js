@@ -1,8 +1,11 @@
-const app = require('./../app');
+const app = require('./../app')
 const http = require('http');
-const mergeRoute = require('./../routes/route-mapping');
+const appConfig = require('./../config/app-config');
+const routeServiceProvider = require('./../app/providers/route-service-provider');
 let server = http.createServer(app);
-mergeRoute(app);
-server.listen (process.env.PORT,()=>{
-	console.log('application run on port: '+ process.env.PORT);
-})
+routeServiceProvider(app);
+let port = parseInt(appConfig[process.env.NODE_ENV]['port']);
+
+server.listen (port,()=>{
+	console.log('application run on port: '+ port);
+});

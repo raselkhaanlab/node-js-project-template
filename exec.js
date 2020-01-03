@@ -1,6 +1,6 @@
 let dotEnv = require('dotenv');
 dotEnv.config();
-let db = require('./connection/kenx-connection');
+const {knex:db} =require('./app/providers/database-connection-provider');
 let fs = require('fs');
 let path = require('path');
 let __rootdir = __dirname;
@@ -13,7 +13,7 @@ let sqlStroeProcedure = path.join(databasePath,'store-procedure');
 
  function load(loadingPath){
  	if(! checkifDirecoryExist(loadingPath)){
- 		console.log('Invalid directory for storeProcedure loading');
+ 		console.log('Invalid directory for  loading file');
  		return;
  	}
  	else{

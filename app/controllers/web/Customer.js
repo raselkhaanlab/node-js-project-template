@@ -7,8 +7,7 @@ class Customer extends Controller  {
 
 	}
 	async all(req,res){
-		let CustomerModel = __this.loadmodel('Customer');
-		res.end();
+
 	}
 }
 module.exports = Customer;

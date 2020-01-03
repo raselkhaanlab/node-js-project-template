@@ -1,0 +1,32 @@
+module.exports = {
+		production:{
+			port:process.env.PORT?process.env.PORT:7200,
+			session:{
+				name:process.env.SESSION_NAME?process.env.SESSION_NAME:'PRODUCTION_SESSION',
+				secret:process.env.SESSION_SECRET?process.env.SESSION_SECRET:'076HRCD',
+			},
+			cookie:{
+				maxAge:process.env.COOKIE_MAXAGE?nv.COOKIE_MAXAGE:(12*60*1000)
+			}
+		},
+		development:{
+			port:process.env.DEV_PORT?process.env.DEV_PORT:7300,
+			session:{
+				name:process.env.DEV_SESSION_NAME?process.env.DEV_SESSION_NAME:'DEVELOPMENT_SESSION',
+				secret:process.env.DEV_SESSION_SECRET?process.env.DEV_SESSION_SECRET:'076HRCD',
+			},
+			cookie:{
+				maxAge:process.env.DEV_COOKIE_MAXAGE?nv.DEV_COOKIE_MAXAGE:(1*60*1000)
+			}
+		},
+		test:{
+			port:process.env.TEST_PORT?process.env.TEST_PORT:7400,
+			session:{
+				name:process.env.TEST_SESSION_NAME?process.env.TEST_SESSION_NAME:'TEST_SESSION',
+				secret:process.env.TEST_SESSION_SECRET?process.env.TEST_SESSION_SECRET:'076HRCD',
+			},
+			cookie:{
+				maxAge:process.env.TEST_COOKIE_MAXAGE?nv.TEST_COOKIE_MAXAGE:(1*60*1000)
+			}
+		}
+}
