@@ -9,7 +9,6 @@ const cookieParser = require('cookie-parser');
 const appConfig = require('./config/app-config');
 const cors = require('cors');
 const expressFlash = require('express-flash');
-
 const getMyEnv=process.env.NODE_ENV?process.env.NODE_ENV:'development';
 const appConfigEnv = appConfig[getMyEnv];
 const sessionConfig = appConfigEnv['session'];
@@ -28,12 +27,11 @@ const sessionMiddleware = expressSession({
 });
 global.__rootdir = __dirname;
 //configure app;
-dotEnv.config();
+dotEnv.config(); 
 app.disable('x-powered-by');
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname, 'views'));
-// app.use(express.static('public/'));
-// middleware set
+app.use(express.static(path.join(__dirname,'public')));
 app.use(cors());
 app.use(cookieParser());
 app.use(sessionMiddleware);

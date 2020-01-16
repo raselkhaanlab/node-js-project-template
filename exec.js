@@ -40,11 +40,11 @@ let sqlStroeProcedure = path.join(databasePath,'store-procedure');
  			}
  			else{
  				throw error;
- 			}
+ 			 }
  		})
  	}
  }
- load(sqlStroeProcedure);
+ load( );
  load(sqlFnPath);
 
 
